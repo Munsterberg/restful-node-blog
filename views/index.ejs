@@ -8,8 +8,8 @@
     <div class="blog-post">
       <h2><%= blog.title %></h2>
       <img class="thumbnail preview-image" src="<%= blog.image %>" alt="">
-      <span><%= blog.created %></span>
-      <p><%= blog.body.substring(0, 150) %>...</p>
+      <span><%= blog.created.toDateString() %></span>
+      <p><%- blog.body.substring(0, 150) %>...</p>
       <a href="/posts/<%= blog._id %>" class="btn btn-primary">Read More</a>
     </div>
   <% }); %>

@@ -14,6 +14,7 @@ const favicon = require('serve-favicon');
 const connectAssets = require('connect-assets');
 const methodOverride = require('method-override');
 const path = require('path');
+const expressSanitizer = require('express-sanitizer');
 
 
 // Controllers
@@ -49,6 +50,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
+app.use(expressSanitizer());
 app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(session({

@@ -30,6 +30,8 @@ module.exports = function(app) {
   * POST CREATE ROUTE
   */
   app.post('/posts', function(req, res) { 
+    req.body.blog.body = req.sanitize(req.body.blog.body);
+    
     const blog = new Blog({
       title: req.body.blog.title,
       image: req.body.blog.image,
@@ -81,6 +83,8 @@ module.exports = function(app) {
   * PUT EDIT ROUTE
   */
   app.put('/posts/:id', function(req, res) {
+    req.body.blog.body = req.sanitize(req.body.blog.body);
+    
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog) {
       if(err) {
         console.log(err);
