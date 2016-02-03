@@ -1,0 +1,29 @@
+{
+  "name": "lolextreme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jake",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "connect-assets": "^5.1.0",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.4.1",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "express-flash": "0.0.2",
+    "express-session": "^1.13.0",
+    "express-validator": "^2.19.0",
+    "lusca": "^1.3.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.7",
+    "morgan": "^1.6.1",
+    "node-sass-middleware": "^0.9.7",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.3.0"
+  }
+}
