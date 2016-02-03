@@ -29,5 +29,20 @@ module.exports = function(app) {
   /*
   * Create Post Route
   */
+  app.post('/posts', function(req, res) { 
+    const blog = new Blog({
+      title: req.body.blog.title,
+      image: req.body.blog.image,
+      body: req.body.blog.body
+    });
+    
+    blog.save(function(err) {
+      if(err) {
+        console.log(err);
+      } else {
+        res.redirect('/posts');
+      }
+    })
+  });
 
 };
