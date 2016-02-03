@@ -81,7 +81,13 @@ module.exports = function(app) {
   * PUT EDIT ROUTE
   */
   app.put('/posts/:id', function(req, res) {
-    
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog) {
+      if(err) {
+        console.log(err);
+      } else {
+        res.redirect('/posts/' + req.params.id);
+      }
+    });
   });
 
 };
