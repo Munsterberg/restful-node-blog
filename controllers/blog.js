@@ -89,5 +89,18 @@ module.exports = function(app) {
       }
     });
   });
+  
+  /*
+  * DELETE POST ROUTE
+  */
+  app.delete('/posts/:id', function(req, res) {
+    Blog.findByIdAndRemove(req.params.id, function(err) {
+      if(err) {
+        console.log(err);
+      } else {
+        res.redirect('/posts');
+      }
+    });
+  });
 
 };
