@@ -3,7 +3,7 @@ const Blog = require('../models/Blog');
 module.exports = function(app) {
   
   /*
-  * Index Route
+  * GET INDEX ROUTE
   */
   app.get('/posts', function(req, res) {
     Blog.find({}, function(err, blogs) {
@@ -19,7 +19,7 @@ module.exports = function(app) {
   });
   
   /*
-  * New Blog Post Route
+  * GET CREATE POST ROUTE
   */
   app.get('/posts/new', function(req, res) {
     res.render('new', { title: 'New Post' });
@@ -27,7 +27,7 @@ module.exports = function(app) {
   
   
   /*
-  * Create Post Route
+  * POST CREATE ROUTE
   */
   app.post('/posts', function(req, res) { 
     const blog = new Blog({
@@ -42,7 +42,23 @@ module.exports = function(app) {
       } else {
         res.redirect('/posts');
       }
-    })
+    });
+  });
+  
+  /*
+  * GET SHOW ROUTE
+  */
+  app.get('/posts/:id', function(req, res) {
+    Blog.findById(req.params.id, function(err, foundBlog){
+      if(err) {
+        console.log(err);
+      } else {
+        res.render('show', {
+          title: 'Blog',
+          blog: foundBlog
+        });
+      }
+    });
   });
 
 };
