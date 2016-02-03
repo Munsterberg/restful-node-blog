@@ -76,5 +76,12 @@ module.exports = function(app) {
       }
     });
   });
+  
+  /*
+  * PUT EDIT ROUTE
+  */
+  app.put('/posts/:id', function(req, res) {
+    
+  });
 
 };
