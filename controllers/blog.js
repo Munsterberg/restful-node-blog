@@ -60,5 +60,21 @@ module.exports = function(app) {
       }
     });
   });
+  
+  /*
+  * GET EDIT POST ROUTE
+  */
+  app.get('/posts/:id/edit', function(req, res) {
+    Blog.findById(req.params.id, function(err, foundBlog) {
+      if(err) {
+        console.log(err);
+      } else {
+        res.render('edit', {
+          title: 'Edit',
+          blog: foundBlog
+        });
+      }
+    });
+  });
 
 };
