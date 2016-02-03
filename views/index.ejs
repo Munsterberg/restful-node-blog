@@ -9,7 +9,7 @@
       <h2><%= blog.title %></h2>
       <img class="thumbnail preview-image" src="<%= blog.image %>" alt="">
       <span><%= blog.created %></span>
-      <p><%= blog.body %></p>
+      <p><%= blog.body.substring(0, 150) %>...</p>
       <a href="/posts/<%= blog._id %>" class="btn btn-primary">Read More</a>
     </div>
   <% }); %>
